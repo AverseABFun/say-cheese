@@ -1,0 +1,21 @@
+/home/arthur/say-cheese/target/x86_64-unknown-linux-gnu/release/say-cheese  :
+section          size    addr
+.interp            28     680
+.dynsym           168     776
+.gnu.version_r     48     960
+.dynstr           141    1036
+.rela.dyn         216    1184
+.rodata            14    1400
+.text             267    5584
+.init              27    5852
+.fini              13    5880
+.fini_array         8    9992
+.init_array         8   10000
+.dynamic          368   10008
+.got               48   10376
+.data               8   14520
+.bss                1   14528
+Total            1363
+
+
+4.0K	/home/arthur/say-cheese/target/x86_64-unknown-linux-gnu/release/say-cheese

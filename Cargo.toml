@@ -1,0 +1,23 @@
+[package]
+name = "say-cheese"
+version = "0.1.0"
+edition = "2021"
+
+[profile.dev]
+strip = true
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[profile.release]
+opt-level = "z"
+strip = "symbols"
+lto = true
+codegen-units = 1
+panic = "abort"
+debug = false
+overflow-checks = false
+debug-assertions = false
+
+[dependencies]
+libc = { version = "0.2.169", default-features = false }
