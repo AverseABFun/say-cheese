@@ -5,7 +5,7 @@ fi
 if [ "$1" = "--restore" ]; then
     cp ./backup/say-cheese /home/arthur/say-cheese/target/x86_64-unknown-linux-gnu/release
 fi
-RUSTFLAGS="-Zlocation-detail=none -Zfmt-debug=none -Clink-args=-Wl,--strip-all" cargo build \
+RUSTFLAGS="-Zlocation-detail=none -Zfmt-debug=none -Clink-args=-Wl,--strip-all -Clink-arg=-nostartfiles -Clink-arg=-nodefaultlibs" cargo build \
   -Z build-std=panic_abort \
   -Z build-std-features=optimize_for_size,panic_immediate_abort \
   --release --target=x86_64-unknown-linux-gnu
@@ -17,5 +17,5 @@ fi
 strip --remove-section=.comment --remove-section=.relro_padding --remove-section=.gnu_debuglink \
     --remove-section=.gnu.version --remove-section=.eh_frame --remove-section=.gnu.hash \
     --remove-section=.note.ABI-tag --remove-section=.note.gnu.build-id --remove-section=.eh_frame_hdr \
-    --remove-section=.tm_clone_table --strip-debug \
+    --remove-section=.tm_clone_table --strip-debug -X --strip-all  \
     /home/arthur/say-cheese/target/x86_64-unknown-linux-gnu/release/say-cheese

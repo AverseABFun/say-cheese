@@ -2,16 +2,15 @@
 #![no_main]
 
 use core::panic::PanicInfo;
-use libc::*;
 
 #[no_mangle]
-pub unsafe extern "C" fn main(_argc: i32, _argv: *const *const u8) -> usize {
-    printf(b"Hello, world!\n".as_ptr() as *const i8);
-    0
+pub unsafe extern "C" fn _start() -> ! {
+    syscalls::syscall!(syscalls::x86_64::Sysno::write, 1, b"Hello, world!\n".as_ptr(), b"Hello, world!\n".len()).unwrap();
+    syscalls::syscall!(syscalls::x86_64::Sysno::exit, 0).unwrap();
+    unreachable!();
 }
 
 #[panic_handler]
 unsafe fn panic_handler(_: &PanicInfo<'_>) -> ! {
-    printf(b"PANIK!\n".as_ptr() as *const i8);
-    exit(1);
+    loop {}
 }
