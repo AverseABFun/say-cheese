@@ -3,10 +3,11 @@ section    size   addr
 .interp      28    624
 .dynsym      24    688
 .dynstr       1    740
-.rodata      14    741
-.text       137   5056
-.dynamic    144   9296
-Total       348
+.rodata      21    741
+.text       169   5152
+.dynamic    144   9424
+Total       387
 
 
-1.8K	/home/arthur/say-cheese/target/x86_64-unknown-linux-gnu/release/say-cheese
+1952	/home/arthur/say-cheese/target/x86_64-unknown-linux-gnu/release/say-cheese
+Small enough for QR code; keep under 2953 bytes

@@ -14,6 +14,7 @@ if [ "$1" = "--backup" ]; then
     cp /home/arthur/say-cheese/target/x86_64-unknown-linux-gnu/release/say-cheese ./backup
 fi
 
+# probably below is mostly unnecessary(except for --strip-all), but it doesn't hurt
 strip --remove-section=.comment --remove-section=.relro_padding --remove-section=.gnu_debuglink \
     --remove-section=.gnu.version --remove-section=.eh_frame --remove-section=.gnu.hash \
     --remove-section=.note.ABI-tag --remove-section=.note.gnu.build-id --remove-section=.eh_frame_hdr \
